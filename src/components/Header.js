@@ -1,7 +1,7 @@
 import "./../style.css";
 import "./../index.css";
 
-export const Header = () => {
+export const Header = ({ isNavClosed }) => {
   const element = document.createElement("header");
 
   element.innerHTML = `
@@ -10,7 +10,7 @@ export const Header = () => {
 
       <div class="navigation">
         <button class="nav-btn"></button>
-        <nav class="rollout-nav nav-closed">
+        <nav class="rollout-nav ${isNavClosed ? "nav-closed" : null}">
           <a href="#home">domů</a>
           <a href="#menu">menu</a>
           <a href="#gallery">galerie</a>
@@ -19,8 +19,15 @@ export const Header = () => {
       </div>
 
     </div>
-
     `;
+
+  element.querySelector(".nav-btn").addEventListener("click", () => {
+    element.replaceWith(Header({ isNavClosed: !isNavClosed }));
+  });
+
+  element.querySelector(".rollout-nav").addEventListener("click", () => {
+    element.replaceWith(Header({ isNavClosed: true }));
+  });
 
   return element;
 };
