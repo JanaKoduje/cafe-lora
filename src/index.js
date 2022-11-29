@@ -1,5 +1,5 @@
 import { Banner } from "./components/Banner";
-import { Menu } from "./components/Menu";
+import { Menu } from "./components/Menu/Menu";
 import { Gallery } from "./components/Gallery";
 import { Contact } from "./components/Contact";
 import { Header } from "./components/Header";
