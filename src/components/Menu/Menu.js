@@ -12,8 +12,20 @@ export const Menu = () => {
   drinkList.classList.add("drinks-list");
   drinkList.append(
     Drink({
-      name: "Lungo",
-      image: "https://apps.kodim.cz/daweb/cafelora/assets/cups/lungo.png",
+      id: 'romano',
+      name: 'Romano',
+      ordered: false,
+      image: 'https://apps.kodim.cz/daweb/cafelora/assets/cups/romano.png',
+      layers: [
+        {
+          color: '#fbdf5b',
+          label: 'citrón',
+        },
+        {
+          color: '#613916',
+          label: 'espresso',
+        },
+      ]
     })
   );
 
