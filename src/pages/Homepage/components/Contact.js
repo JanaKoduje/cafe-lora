@@ -1,6 +1,3 @@
-import "./../../../style.css";
-import "./../../../index.css";
-
 export const Contact = () => {
   const element = document.createElement("section");
   element.setAttribute("id", "contact");

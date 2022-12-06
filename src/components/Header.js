@@ -1,5 +1,3 @@
-import "./../style.css";
-import "./../index.css";
 
 export const Header = ({ isNavClosed, showMenu }) => {
   const element = document.createElement("header");

@@ -1,6 +1,3 @@
-import "./../../../../style.css";
-import "./../../../../index.css";
-
 export const Layer = ({ color, label }) => {
   const element = document.createElement("div");
   element.classList.add("layer");

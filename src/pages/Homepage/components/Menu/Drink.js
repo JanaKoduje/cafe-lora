@@ -1,5 +1,3 @@
-import "./../../../../style.css";
-import "./../../../../index.css";
 
 import { Layer } from "./Layer";
 

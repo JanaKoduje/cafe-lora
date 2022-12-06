@@ -1,6 +1,3 @@
-import "./../../../style.css";
-import "./../../../index.css";
-
 export const Banner = () => {
   const element = document.createElement("section");
 
