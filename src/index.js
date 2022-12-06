@@ -1,5 +1,5 @@
 import { HomePage } from "./pages/HomePage";
-import { Order } from "./pages/OrderPage/Order";
+import { OrderPage } from "./pages/OrderPage/OrderPage";
 
 import "./style.css";
 import "./index.css";
@@ -10,5 +10,5 @@ if
 (pathname === '/') {
   document.querySelector('#app').append(HomePage());
 } else if (pathname === '/objednavka') {
-  document.querySelector('#app').append(Order());
+  document.querySelector('#app').append(OrderPage());
 }

@@ -6,11 +6,7 @@ import { Layer } from "./Layer";
 export const Drink = (props) => {
   const { id, name, ordered, image, layers } = props;
 
-  let orderClass = "";
-  if (ordered) {
-    orderClass = "order-btn--ordered";
-  }
-
+  
   const element = document.createElement("div");
   element.classList.add("drink");
 
@@ -24,7 +20,7 @@ export const Drink = (props) => {
      </div>
    </div>
    <div class="drink__controls">
-     <button class="order-btn ${orderClass}">
+     <button class="order-btn ${ordered ? "order-btn--ordered" : null}">
        ${ordered ? "Zrušit" : "Objednat"}
      </button>
    </div>

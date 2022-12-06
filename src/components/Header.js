@@ -32,7 +32,7 @@ export const Header = ({ isNavClosed, showMenu }) => {
   if (navElm) {
     element.querySelector(".nav-btn").addEventListener("click", () => {
       element.replaceWith(
-        Header({ isNavClosed: !isNavClosed, showMenu: true })
+        Header({ ...props, isNavClosed: !isNavClosed })
       );
     });
   }
@@ -40,7 +40,7 @@ export const Header = ({ isNavClosed, showMenu }) => {
   const rollElm = element.querySelector(".rollout-nav");
   if (rollElm) {
     element.querySelector(".rollout-nav").addEventListener("click", () => {
-      element.replaceWith(Header({ isNavClosed: true, showMenu: true }));
+      element.replaceWith(Header({ ...props, isNavClosed: true }));
     });
   }
 

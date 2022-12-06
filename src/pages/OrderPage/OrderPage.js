@@ -3,7 +3,7 @@ import { Footer} from "../../components/Footer";
 
 import "./objednavka.css"
 
-export const Order = () => {
+export const OrderPage = () => {
 
  const pageElement = document.createElement("page");
  pageElement.classList.add("page");
