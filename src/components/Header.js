@@ -1,44 +1,42 @@
-
-export const Header = ({ isNavClosed, showMenu }) => {
-  const element = document.createElement("header");
-
-  element.innerHTML = showMenu
-    ? `
-    <div class="header__content container">
-      <div class="site-logo"></div> 
-      <div class="navigation">
-        <button class="nav-btn"></button>
-        <nav class="rollout-nav ${isNavClosed ? "nav-closed" : null}">
-          <a href="#home">domů</a>
-          <a href="#menu">menu</a>
-          <a href="#gallery">galerie</a>
-          <a href="#contact">kontakt</a>
-        </nav>
-      </div>
-    </div>
-    `
-    : `
-    <div class="header__content container">
-  <div class="site-logo"></div>
-  <nav class="inline-nav">
-    <a href="/">Hlavní stránka</a>
-  </nav>
-  </div>
+export const Header = ({ showMenu = true }) => {
+  let menu = `  
+    <nav class="inline-nav">
+      <a href="/">Hlavní stránka</a>
+    </nav>
     `;
 
-  const navElm = element.querySelector(".nav-btn");
-  if (navElm) {
-    element.querySelector(".nav-btn").addEventListener("click", () => {
-      element.replaceWith(
-        Header({ isNavClosed: !isNavClosed, showMenu: true })
-      );
-    });
+  if (showMenu) {
+    menu = `
+    <div class="navigation">
+      <button class="nav-btn"></button>
+      <nav class="rollout-nav nav-closed">
+        <a href="#home">domů</a>
+        <a href="#menu">menu</a>
+        <a href="#gallery">galerie</a>
+        <a href="#contact">kontakt</a>
+      </nav>
+    </div>
+    `;
   }
 
-  const rollElm = element.querySelector(".rollout-nav");
-  if (rollElm) {
-    element.querySelector(".rollout-nav").addEventListener("click", () => {
-      element.replaceWith(Header({ isNavClosed: true, showMenu: true }));
+  const element = document.createElement("header");
+
+  element.innerHTML = `
+    <div class="header__content container">
+      <div class="site-logo"></div> 
+      ${menu}
+    </div>
+    `;
+
+  if (showMenu) {
+    element.querySelector(".nav-btn").addEventListener("click", () => {
+      element.querySelector(".rollout-nav").classList.toggle("nav-closed");
+    });
+
+    const rolloutNav = element.querySelector(".rollout-nav");
+
+    rolloutNav.addEventListener("click", (e) => {
+      rolloutNav.classList.add("nav-closed");
     });
   }
 

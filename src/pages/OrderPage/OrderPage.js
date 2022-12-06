@@ -13,7 +13,7 @@ export const OrderPage = () => {
  main.classList.add("order")
  main.append(Order({})) ;
  
- pageElement.append(Header({isNavClosed : true, showMenu : false}), main, Footer());
+ pageElement.append(Header({showMenu : false}), main, Footer());
  return pageElement;
 
 }
