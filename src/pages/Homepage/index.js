@@ -17,7 +17,7 @@ pageElement.classList.add("page");
 const main = document.createElement("main");
 main.append(Banner(), Menu({}), Gallery(), Contact());
 
-pageElement.append(Header({isNavClosed : true}), main, Footer());
+pageElement.append(Header({isNavClosed : true, showMenu: true}), main, Footer());
 
 return pageElement;
 }

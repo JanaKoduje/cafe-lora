@@ -1,13 +1,13 @@
 import "./../style.css";
 import "./../index.css";
 
-export const Header = ({ isNavClosed }) => {
+export const Header = ({ isNavClosed, showMenu }) => {
   const element = document.createElement("header");
 
-  element.innerHTML = `
+  element.innerHTML = showMenu
+    ? `
     <div class="header__content container">
-      <div class="site-logo"></div>
-
+      <div class="site-logo"></div> 
       <div class="navigation">
         <button class="nav-btn"></button>
         <nav class="rollout-nav ${isNavClosed ? "nav-closed" : null}">
@@ -17,17 +17,32 @@ export const Header = ({ isNavClosed }) => {
           <a href="#contact">kontakt</a>
         </nav>
       </div>
-
     </div>
+    `
+    : `
+    <div class="header__content container">
+  <div class="site-logo"></div>
+  <nav class="inline-nav">
+    <a href="/">Hlavní stránka</a>
+  </nav>
+  </div>
     `;
 
-  element.querySelector(".nav-btn").addEventListener("click", () => {
-    element.replaceWith(Header({ isNavClosed: !isNavClosed }));
-  });
+  const navElm = element.querySelector(".nav-btn");
+  if (navElm) {
+    element.querySelector(".nav-btn").addEventListener("click", () => {
+      element.replaceWith(
+        Header({ isNavClosed: !isNavClosed, showMenu: true })
+      );
+    });
+  }
 
-  element.querySelector(".rollout-nav").addEventListener("click", () => {
-    element.replaceWith(Header({ isNavClosed: true }));
-  });
+  const rollElm = element.querySelector(".rollout-nav");
+  if (rollElm) {
+    element.querySelector(".rollout-nav").addEventListener("click", () => {
+      element.replaceWith(Header({ isNavClosed: true, showMenu: true }));
+    });
+  }
 
   return element;
 };
