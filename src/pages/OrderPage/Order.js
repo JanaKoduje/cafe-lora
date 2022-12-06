@@ -1,7 +1,5 @@
 import { OrderItem } from "./OrderItem";
 
-import "./objednavka.css";
-
 export const Order = ({ items }) => {
   const element = document.createElement("div");
   element.classList.add("order__content");
