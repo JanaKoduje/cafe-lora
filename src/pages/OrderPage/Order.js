@@ -8,10 +8,6 @@ export const Order = ({ items }) => {
   element.classList.add("container");
   element.innerHTML = `<h1>Vaše objednávka</h1>`;
 
-  const emptyInfo = document.createElement("p");
-  emptyInfo.classList.add("empty-order");
-  emptyInfo.innerHTML = `<span>Zatím nemáte nic objednáno</span>`;
-
   const orderList = document.createElement("div");
   orderList.classList.add("order__items");
 
@@ -23,15 +19,20 @@ export const Order = ({ items }) => {
       },
     })
       .then((response) => response.json())
-      .then((data) => element.replaceWith(Order({ items: data.results })));
+      .then((data) => element.replaceWith(Order({ items: data.results.filter(((item) => item.ordered)) })));
   } else {
-    const filtered = items.filter((item) => item.ordered);
+   
+    if (items.length === 0) {
+      const emptyInfo = document.createElement("p");
+      emptyInfo.classList.add("empty-order");
+      emptyInfo.textContent = "Zatím nemáte nic objednáno";
 
-    if (filtered.length === 0) {
       element.append(emptyInfo);
     } else {
       orderList.append(
-        ...filtered.map((item) => OrderItem({ name: item.name, image: item.image }))
+        ...items.map((item) =>
+          OrderItem({ name: item.name, image: item.image })
+        )
       );
       element.append(orderList);
     }
