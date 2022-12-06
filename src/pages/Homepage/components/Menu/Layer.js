@@ -1,5 +1,5 @@
-import "./../../style.css";
-import "./../../index.css";
+import "./../../../../style.css";
+import "./../../../../index.css";
 
 export const Layer = ({ color, label }) => {
   const element = document.createElement("div");

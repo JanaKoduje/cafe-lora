@@ -1,6 +1,5 @@
-import "./../style.css";
-import "./../index.css";
-
+import "./../../../style.css";
+import "./../../../index.css";
 export const Gallery = () => {
   const element = document.createElement("section");
   element.setAttribute("id", "gallery");

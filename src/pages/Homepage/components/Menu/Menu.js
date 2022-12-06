@@ -1,7 +1,7 @@
 import { Drink } from "./Drink";
 
-import "./../../style.css";
-import "./../../index.css";
+import "./../../../../style.css";
+import "./../../../../index.css";
 
 export const Menu = ({ drinks }) => {
   const element = document.createElement("section");
