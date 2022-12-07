@@ -1,10 +1,8 @@
-
 import { Layer } from "./Layer";
 
 export const Drink = (props) => {
   const { id, name, ordered, image, layers } = props;
 
-  
   const element = document.createElement("div");
   element.classList.add("drink");
 

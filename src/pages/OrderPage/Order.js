@@ -6,9 +6,6 @@ export const Order = ({ items }) => {
   element.classList.add("container");
   element.innerHTML = `<h1>Vaše objednávka</h1>`;
 
-  const orderList = document.createElement("div");
-  orderList.classList.add("order__items");
-
   if (items === undefined) {
     fetch(`https://apps.kodim.cz/daweb/cafelora/api/me/drinks`, {
       method: "GET",
@@ -17,9 +14,12 @@ export const Order = ({ items }) => {
       },
     })
       .then((response) => response.json())
-      .then((data) => element.replaceWith(Order({ items: data.results.filter(((item) => item.ordered)) })));
+      .then((data) =>
+        element.replaceWith(
+          Order({ items: data.results.filter((item) => item.ordered) })
+        )
+      );
   } else {
-   
     if (items.length === 0) {
       const emptyInfo = document.createElement("p");
       emptyInfo.classList.add("empty-order");
@@ -27,6 +27,8 @@ export const Order = ({ items }) => {
 
       element.append(emptyInfo);
     } else {
+      const orderList = document.createElement("div");
+      orderList.classList.add("order__items");
       orderList.append(
         ...items.map((item) =>
           OrderItem({ name: item.name, image: item.image })

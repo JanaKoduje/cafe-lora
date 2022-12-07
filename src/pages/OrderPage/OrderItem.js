@@ -1,4 +1,5 @@
 export const OrderItem = ({ name, image }) => {
+  
   const element = document.createElement("div");
   element.classList.add("order-item");
 

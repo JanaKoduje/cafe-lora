@@ -34,7 +34,6 @@ export const Header = ({ showMenu = true }) => {
     });
 
     const rolloutNav = element.querySelector(".rollout-nav");
-
     rolloutNav.addEventListener("click", (e) => {
       rolloutNav.classList.add("nav-closed");
     });

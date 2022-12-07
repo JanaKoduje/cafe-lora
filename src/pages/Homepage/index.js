@@ -5,18 +5,14 @@ import { Contact } from "./components/Contact";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 
-
 export const HomePage = () => {
+  const pageElement = document.createElement("div");
+  pageElement.classList.add("page");
 
-const pageElement = document.createElement("div");
-pageElement.classList.add("page");
+  const main = document.createElement("main");
+  main.append(Banner(), Menu({}), Gallery(), Contact());
 
-const main = document.createElement("main");
-main.append(Banner(), Menu({}), Gallery(), Contact());
+  pageElement.append(Header({ showMenu: true }), main, Footer());
 
-pageElement.append(Header({showMenu: true}), main, Footer());
-
-return pageElement;
-}
-
-
+  return pageElement;
+};

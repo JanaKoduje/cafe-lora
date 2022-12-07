@@ -7,8 +7,7 @@ export const Menu = ({ drinks }) => {
 
   const orderLink = document.createElement("div");
   orderLink.classList.add("order-detail");
-  orderLink.innerHTML = `<a href="/objednavka">Detail objednávky</a>`
-
+  orderLink.innerHTML = `<a href="/objednavka">Detail objednávky</a>`;
 
   const drinkList = document.createElement("div");
   drinkList.classList.add("drinks-list");
